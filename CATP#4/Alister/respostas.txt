@@ -1,0 +1,80 @@
+1.1.2
+	Vera gosta de Boliche e Cinema.
+	gosta(X,Y) lista todos os pares (pessoa,coisa) tal que pessoa gosta de coisa.
+	Lista todas as pessoas que gostam de cinema.
+	
+1.1.4
+	"Paulo" é citado duas vezes como sendo uma coisa que Pedro gosta, isso ocorre
+	pois ele satisfaz as duas regras de inferência adicionadas à base de conhecimento.
+	No caso, como Maria gosta de boliche, Paulo gosta de boliche pela regra (1), e isto
+	é redundante com a verdade de que Paulo gosta de Boliche, por isso o mesmo é citado 
+	duas vezes. O predicado retorna falso pois tenta satisfazer gosta(boliche,boliche).
+	
+1.2.3
+	Como Pedro gosta de boliche e Pedro gosta de todos que gostam de boliche, agora
+	Pedro gosta de Pedro. E como Pedro gosta de todos que gostam de si mesmo, e Pedro
+	gosta de si mesmo, Pedro gosta de Pedro. E isto gera um loop infinito.
+	
+1.2.5
+	Primeiramente todas as pessoas combinarão consigo mesmas, já que não há a necessidade
+	que X seja diferente de Y. Além disso, devido à regra que faz Pedro gostar de si mesmo
+	a consulta fica eternamente em loop.
+	
+1.2.7
+	A única diferença em relação à anterior, é que este não combina cada pessoa com si mesma
+	mas ainda entra em loop.
+	
+1.3.2
+	Usando os predicados de escrita na tela, a saída é a mesma do exercício anterior, porém
+	formatada em uma frase.
+	
+1.3.4
+	lista_todos lista todos os pares (X,Y) tal que X gosta de Y. Como nossa base
+	de dados consiste primariamente em pares deste tipo, ela lista todos os fatos
+	contidos na base e também todos os que podem ser inferidos da forma gosta(X,Y).
+	
+1.3.5
+	Usando lista_todos(X,Y) temos um erro, pois o predicado agora é de aridade
+	zero. Chamando simplesmente 'lista_todos.', a saída consiste em um 'true'
+	para cada par possível na base de conhecimento da forma gosta(X,Y).
+	
+1.3.6
+	Devido ao operador 'fail' no fim do predicado, a cláusula não é satisfeita,
+	portanto, o Prolog imprime todas os pares, mas "pensa" que eles não satisfizeram
+	o predicado, então não nos dá a possibilidade de ir passando de solução em solução.
+	Devido ao loop infinito presente na base de dados, isso gera uma quantidade infinita
+	de impressões na tela.
+	
+1.4.5
+	A diretiva fail retorna valor falso a um predicado.
+	
+2.1.3
+	A diretiva cut fez com que, após supor um valor para a variável Day, este não
+	pudesse mudar. Como o primeiro valor encontrado foi Friday e weekend(friday) == false,
+	o predicado retorna falso.
+	
+2.1.4
+	Como agora o cut foi usado após o teste weekend, ainda pode ser realizado backtracking
+	na variável Day no predicado weather. Porém, após satisfazer weekend, este valor não pode
+	mais mudar, portando, somente uma solução é listada (saturday).
+	
+2.1.5
+	O operador de corte no início do predicado impede que outros predicados (no caso
+	o que considera feriados) sejam testados.
+	
+3.1.1
+	-> N recebe o valor 2, que é 1+1.
+	-> Como X não está instanciado, esta consulta leva a erro.
+	-> Como, no argumento de 'is', I é variável livre, esta consulta leva a erro.
+	-> Como é atribuído 6 a I, ao realizarmos I is I+1, o que ocorre é uma comparação
+		que retorna falso, porque é óbvio que I e I+1 são diferentes.
+	-> Nesta, tudo ok, I = 6 e J = 7, pois o valor de I é usado em J is I + 1.
+	-> Erro na última cláusula, 'Q is P*Q', sendo que Q não está instanciado, não
+		há como multiplicá-lo por P.
+		
+4.1.2
+	Pela Hipótese de Mundo Fechado, tudo que não consta na base de dados é falso,
+	portanto, para todos os átomos que não são citados como sendo estrelas, planetas,
+	ou satélites, a negação destes predicados será verdadeira. Como 'apollo13' não
+	está cadastrado na nossa base de dados, o motor de inferência determina que o mesmo
+	é um cometa, pois satisfaz as três cláusulas necessárias para tal.

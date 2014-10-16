@@ -1,0 +1,25 @@
+comandante('Archer', X).
+comandante(X, 'NX-01').
+comandante(X, Y).
+
+inimigos('Archer', 'Kirk').
+inimigos('Picard', 'Almak').
+inimigos('Janeway', Y).
+inimigos(Y, 'Janeway').
+
+lista_inimigos('Almak', X).
+lista_inimigos(X, Y).
+
+lista_comandantes('Federação', X).
+lista_comandantes('Império Romulano', X).
+lista_comandantes(X, ['Almak']).
+
+naves_por_faccao('Império Romulano', X).
+naves_por_faccao('Federação', X).
+
+conta_naves.
+
+comandantes_por_nave([], X).
+comandantes_por_nave(X, []).
+comandantes_por_nave(['Kirk'], N).
+comandantes_por_nave(X, ['NCC-1701', 'Irwtmet']).
